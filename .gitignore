@@ -3,3 +3,4 @@
 entrypoint.sh
 tools/
 .env
+pkg/

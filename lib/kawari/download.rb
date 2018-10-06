@@ -1,9 +1,9 @@
 require 'rest-client'
 
 module Kawari
-  module Helpers
-    class Downloader
-      def self.get(url)
+  class Download
+    class << self
+      def get(url)
         begin
           RestClient.get(url)
         rescue

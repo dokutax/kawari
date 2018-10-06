@@ -3,14 +3,14 @@ require 'cgi'
 
 module Kawari
   class Item
-    attr_accessor :title, :link, :classifier, :id
+    attr_accessor :title, :link, :classifier, :zid
     def initialize(title, link)
       @title = title.gsub('.', ' ')
       @link = link
     end
 
     def id
-      id ||= get_id
+      @zid ||= get_id
     end
 
     def to_torrent(source)
@@ -34,7 +34,7 @@ module Kawari
     def get_id
       uri = URI.parse(link)
       query = CGI.parse(uri.query)
-      @id = query['id'].first.to_i
+      @zid = query['id'].first.to_i
     end
   end
 end

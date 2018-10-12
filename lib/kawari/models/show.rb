@@ -22,7 +22,7 @@ module Kawari
       end
 
       def same_title?(ep)
-        title_matcher = Regexp.new('.*?' + ep.title.gsub(/[^0-9A-Za-z]/, '.*?') + '.*')
+        title_matcher = Regexp.new('.*?' + ep.title.gsub(/[^0-9A-Za-z]/, '.*?') + '.*', Regexp::IGNORECASE)
         title_matcher =~ name
       rescue
         false
